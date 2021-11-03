@@ -1,8 +1,8 @@
 <% @users.each do |user| %>
 <div>
   <p>image</p>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  <p>Name：<%= @user.name %></p>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <p>Name：<%= user.name %></p>
   <p>show</p>
 </div>
 <% end %>

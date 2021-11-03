@@ -1,13 +1,27 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.users_show_all{
+  display: flex;
+  justify-content: center;
+}
+
+.left_side{
+  margin:20px 50px 0 0;
+}
+
 .user_show{
-  width:200px;
+  width:250px;
   hight:400ox;
-  margin:20px 0 0 50px
 }
 
 .user_show_button{
-  width:200px;
+  margin:0 auto;
+  width:250px;
   hight:20px;
+}
+
+.users_books_show{
+  margin:20px 0 0 100px;
+  width:700px;
 }
