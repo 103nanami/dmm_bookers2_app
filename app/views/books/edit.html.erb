@@ -1,0 +1,45 @@
+  <div class="container">
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>error prohibited this obj.
+      <% @book.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
+    <div class="row">
+
+      <div class="col-lg-5" style="margin:20px auto;">
+
+        <h1>Editing Book</h1>
+
+        <%= form_with model: @book, local:true do |f| %>
+
+          <div class="input_title" >
+            <label for="inputTitle">Title</label>
+            <textfield class="form-control book_title" type="text" name="book[title]" id:"inputTitle" >
+              <%= @book.title %>
+            </textfield>
+          </div>
+
+          <div class="input_body" style="margin:10px 0;">
+            <label for="inputbody">Opinion</label>
+            <textarea class="form-control book_body" name="book[body]"  id:"inputbody" >
+              <%= @book.body %>
+            </textarea>
+          </div>
+
+          <%= f.submit 'Update Book',class: "btn btn btn-success" %>
+
+        <% end %>
+
+
+          <p class="link" style="display:block; margin:20px 0;">
+          <%= link_to book_path(@book.id) do %> Show <% end %>
+          |
+          <%= link_to books_path do %> Back <% end %>
+          </p>
+
+      </div>
+
+    </div>
+  </div>

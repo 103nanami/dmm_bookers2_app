@@ -1,13 +1,41 @@
-<h1>Book detail</h1>
+<main class="container">
 
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-<%= @user.name %>
+  <div class="row">
 
+    <div class="col-lg-4">
+      <%= render 'books/list', book: @book, user: @user%>
+    </div>
 
-<%= @book.title %>
+    <div class="col-lg-8">
+      <h2>Book detail</h2>
 
-<%= @book.body %>
+      <table class="table">
+      <tbody>
+        <tr>
+            <td>
+              <%= link_to user_path(@user.id) do %>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+                <br>
+                <%= @user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@book.id) do %>
+              <%=@book.title %>
+              <% end %>
+            </td>
+            <td><%=@book.body %></td>
+            <td>
+              <%= link_to "Edit" ,edit_book_path(@book.id), class:"btn btn-sm btn-success"  %>
+            </td>
+            <td>
+              <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" ,class:"btn btn-sm btn-danger" %>
+            </td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
 
-<a class="btn btn-sm btn-success edit_book_:id" href="/books/:id/edit">Edit</a>
+  </div>
 
-<a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_:id" rel="nofollow" data-method="delete" href="/books/:id">Destroy</a>
+</main>
