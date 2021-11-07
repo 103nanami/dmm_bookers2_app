@@ -1,39 +1,47 @@
 
-<main class="container">
+<div class="container">
 
   <div class="row">
 
-  <div class="col-lg-4">
-    <%= render 'users/list', user: @user %>
-  </div>
+    <div class="col-md-3">
+      <%= render 'users/list', user: @user, book: @book %>
+    </div>
 
-  <div class="col-lg-8" style="margin-top:20px;">
-    <h2>Books</h2>
+    <div class="col-md-8 offset-md-1" style="margin-top:20px;">
+      <h2>Books</h2>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Title</th>
-        <th scope="col">Opinion</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-        <% @books.each do |book| %>
-         <tr>
-          <th scope="row"></th>
-          <td>
-            <%= link_to book_path(book.id) do %>
-            <%=book.title %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @books.each do |book| %>
+             <tr>
+              <th scope="row">
+              </th>
+              <td>
+                <%= link_to user_path(@user.id) do %>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' ,fallback: "no_image.jpg" %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                <%=book.title %>
+                <% end %>
+              </td>
+              <td><%=book.body %></td>
+              <td></td>
+             </tr>
             <% end %>
-          </td>
-          <td><%=book.body %></td>
-          <td></td>
-         </tr>
-        <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+
+    </div>
   </div>
 
-</main>
+</div>

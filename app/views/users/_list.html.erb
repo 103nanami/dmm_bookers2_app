@@ -25,9 +25,9 @@
       </table>
 
       <div class="user_show_button">
-        <div class="row">
-          <%= link_to '',edit_user_path(current_user.id) ,class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
-        </div>
+          <div class="row">
+            <%= link_to '',edit_user_path(user.id) ,class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+          </div>
       </div>
 
     </div>
@@ -38,7 +38,7 @@
 
   <h2>New book</h2>
 
-  <%= form_with model: @book, local:true do |f| %>
+  <%= form_with model: book, local:true do |f| %>
 
     <div class="input_title">
       <label for="inputTitle">Title</label>
